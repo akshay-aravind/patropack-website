@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import FluteBoard from './FluteBoard'
+import AboutImage from './AboutImage'
 
 export default function About() {
   return (
@@ -24,9 +24,10 @@ export default function About() {
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-soft/75">
             <p>
               PatroPack is a newly established corrugated packaging manufacturer
-              serving industrial, retail, food, e-commerce and export businesses.
-              From a single sheet of kraft board to a fully printed, die-cut carton,
-              every stage happens under one roof.
+              based in Sharjah, serving industrial, retail, food, e-commerce and
+              export businesses across Dubai and the UAE. From a single sheet of
+              kraft board to a fully printed, die-cut carton, every stage happens
+              under one roof.
             </p>
             <p>
               Being new is our advantage: modern equipment, a hands-on team that
@@ -61,7 +62,7 @@ export default function About() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <FluteBoard />
+          <AboutImage />
         </motion.div>
       </div>
     </section>

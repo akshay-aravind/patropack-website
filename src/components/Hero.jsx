@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CorrugatedBox from './CorrugatedBox'
+import FactoryBackdrop from './FactoryBackdrop'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -139,6 +140,8 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-1/3 h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(196,133,74,0.22),transparent_60%)]" />
           <div className="absolute inset-0 flute-pattern opacity-40" />
+          {/* faint factory-floor watermark: reels + stacked cartons */}
+          <FactoryBackdrop className="absolute inset-x-0 bottom-0 h-[62%] w-full text-kraft-300 opacity-[0.06]" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
         </div>
 
@@ -155,21 +158,22 @@ export default function Hero() {
         </div>
 
         {/* intro copy */}
-        <div ref={introRef} className="relative z-20 mb-4 max-w-3xl px-6 text-center">
+        <div ref={introRef} className="relative z-20 mb-8 max-w-3xl px-6 text-center sm:mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-kraft-500/40 bg-kraft-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-kraft-200">
             <span className="h-1.5 w-1.5 rounded-full bg-kraft-400" />
             Corrugated packaging · engineered
           </span>
-          <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.98] text-balance sm:text-6xl lg:text-7xl">
-            Packaging that
+          <h1 className="mt-5 font-display text-4xl font-semibold leading-[0.98] text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
+            Your Trusted Partner
             <br />
             <span className="bg-gradient-to-r from-kraft-200 via-kraft-400 to-kraft-300 bg-clip-text text-transparent">
-              means business.
+              For Packaging Solutions
             </span>
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-kraft-100/70 sm:text-lg">
-            High-strength corrugated cartons for food, retail, e-commerce, pharma
-            and export — designed, printed and delivered from one floor.
+          <p className="mx-auto mt-4 max-w-xl text-base text-kraft-100/70 sm:text-lg">
+            High-strength corrugated boxes for food, retail, e-commerce, pharma
+            and export — manufactured in Sharjah and delivered across Dubai and
+            the UAE.
           </p>
         </div>
 

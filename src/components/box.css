@@ -8,9 +8,9 @@
 */
 
 .cbox-scene {
-  --w: 420px; /* width  (x) */
-  --d: 320px; /* depth  (z, front-back) */
-  --h: 280px; /* height (y, wall height) */
+  --w: 380px; /* width  (x) */
+  --d: 290px; /* depth  (z, front-back) */
+  --h: 250px; /* height (y, wall height) */
   --board: 12px; /* board thickness look */
 
   --ol: 0; /* left flap  */
@@ -302,6 +302,23 @@
   filter: blur(8px);
   opacity: calc(1 - var(--dive));
   transform: scale(calc(1 + (var(--ol) + var(--of)) * 0.14));
+}
+
+/* keep the box from crowding the hero copy on short viewports (placed before
+   the width rules so narrow-phone sizes still win on small screens) */
+@media (max-height: 780px) {
+  .cbox-scene {
+    --w: 330px;
+    --d: 250px;
+    --h: 210px;
+  }
+}
+@media (max-height: 640px) {
+  .cbox-scene {
+    --w: 280px;
+    --d: 210px;
+    --h: 180px;
+  }
 }
 
 @media (max-width: 900px) {
