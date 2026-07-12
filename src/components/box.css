@@ -1,0 +1,320 @@
+/* ---- Big artistic corrugated box that opens flap-by-flap, then the camera
+   dives into it. Driven by CSS custom properties set per-frame from the Hero
+   GSAP timeline:
+     --ol --orr --ob --of : each flap's open progress (0 sealed → 1 splayed)
+     --dive              : camera plunge into the opening (0 → 1)
+     --lift              : gentle rise while opening
+     --mx --my --pox --poy : cursor parallax
+*/
+
+.cbox-scene {
+  --w: 420px; /* width  (x) */
+  --d: 320px; /* depth  (z, front-back) */
+  --h: 280px; /* height (y, wall height) */
+  --board: 12px; /* board thickness look */
+
+  --ol: 0; /* left flap  */
+  --orr: 0; /* right flap */
+  --ob: 0; /* back flap  */
+  --of: 0; /* front flap */
+  --dive: 0;
+  --lift: 0;
+
+  --mx: 0deg;
+  --my: 0deg;
+  --pox: 0px;
+  --poy: 0px;
+
+  perspective: 1500px;
+  perspective-origin: calc(50% + var(--pox)) calc(42% + var(--poy));
+  width: 100%;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+.cbox {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  transform-style: preserve-3d;
+  transform: translateY(calc(var(--lift) * -26px))
+    rotateX(calc(60deg + var(--my))) rotateY(var(--mx)) rotateZ(-28deg)
+    scale(calc(1 + var(--dive) * 2.9))
+    translateZ(calc(var(--dive) * 220px));
+  will-change: transform;
+}
+
+/* shared flute texture for kraft faces */
+.flute-y::after,
+.flute-x::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.flute-y::after {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(53, 30, 21, 0.16) 0 1px,
+    rgba(255, 255, 255, 0.05) 1px 2px,
+    transparent 2px 9px
+  );
+}
+.flute-x::after {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(53, 30, 21, 0.16) 0 1px,
+    rgba(255, 255, 255, 0.05) 1px 2px,
+    transparent 2px 9px
+  );
+}
+
+/* ---------- interior floor ---------- */
+.cbox__bottom {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w);
+  height: var(--d);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--d) / -2);
+  transform: translateZ(calc(var(--h) / -2));
+  background:
+    radial-gradient(120% 90% at 50% 30%, rgba(53, 30, 21, 0.15), rgba(53, 30, 21, 0.55)),
+    linear-gradient(180deg, #a4632f, #6d3f22);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+}
+.cbox__bottom svg {
+  width: 42%;
+  opacity: 0.5;
+}
+
+/* ---------- outer + inner walls ---------- */
+.cbox__side {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  box-shadow: inset 0 0 0 1px rgba(53, 30, 21, 0.25);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.14)),
+    linear-gradient(180deg, #cd9a5b, #9a5c2c);
+}
+/* the inner face of each wall reads darker (we see into the box) */
+.cbox__side.inner {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    linear-gradient(180deg, #8a4f28, #5c351d);
+}
+
+.cbox__side.front,
+.cbox__side.back {
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2);
+}
+.cbox__side.left,
+.cbox__side.right {
+  width: var(--d);
+  height: var(--h);
+  margin-left: calc(var(--d) / -2);
+  margin-top: calc(var(--h) / -2);
+}
+.cbox__side.front {
+  transform: rotateX(90deg) translateZ(calc(var(--d) / 2));
+}
+.cbox__side.back {
+  transform: rotateX(90deg) translateZ(calc(var(--d) / -2)) rotateY(180deg);
+}
+.cbox__side.left {
+  transform: rotateX(90deg) rotateY(90deg) translateZ(calc(var(--w) / 2));
+}
+.cbox__side.right {
+  transform: rotateX(90deg) rotateY(-90deg) translateZ(calc(var(--w) / 2));
+}
+/* inner walls sit a hair inside so both faces are visible when open */
+.cbox__side.front.inner {
+  transform: rotateX(90deg) translateZ(calc(var(--d) / 2 - var(--board))) rotateY(180deg);
+}
+.cbox__side.back.inner {
+  transform: rotateX(90deg) translateZ(calc(var(--d) / -2 + var(--board)));
+}
+.cbox__side.left.inner {
+  transform: rotateX(90deg) rotateY(90deg) translateZ(calc(var(--w) / 2 - var(--board))) rotateY(180deg);
+}
+.cbox__side.right.inner {
+  transform: rotateX(90deg) rotateY(-90deg) translateZ(calc(var(--w) / 2 - var(--board))) rotateY(180deg);
+}
+
+/* printed details on the front wall */
+.cbox__label {
+  position: absolute;
+  left: 12%;
+  bottom: 16%;
+  width: 42%;
+  height: 34%;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f6efe0, #e7d6bb);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  padding: 8%;
+  transform: translateZ(1px);
+}
+.cbox__label i {
+  display: block;
+  height: 8px;
+  border-radius: 3px;
+  background: #7a4a2a;
+  opacity: 0.85;
+}
+.cbox__label i + i {
+  margin-top: 7px;
+  width: 70%;
+  opacity: 0.5;
+}
+.cbox__label i:nth-child(3) {
+  width: 85%;
+  opacity: 0.35;
+}
+.cbox__stamp {
+  position: absolute;
+  right: 10%;
+  top: 14%;
+  width: 30%;
+  aspect-ratio: 1;
+  border: 3px solid #a23b2a;
+  border-radius: 8px;
+  color: #a23b2a;
+  font: 700 clamp(9px, 2.4vw, 15px) / 1 'Space Grotesk', sans-serif;
+  letter-spacing: 0.08em;
+  display: grid;
+  place-items: center;
+  transform: translateZ(1px) rotate(-8deg);
+  opacity: 0.85;
+}
+
+/* ---------- top rim (board thickness at the opening) ---------- */
+.cbox__rim {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w);
+  height: var(--d);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--d) / -2);
+  transform: translateZ(calc(var(--h) / 2 - 1px));
+  background: radial-gradient(
+    130% 130% at 50% 50%,
+    rgba(53, 30, 21, 0.1),
+    rgba(53, 30, 21, 0.6)
+  );
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- flaps ---------- */
+.cbox__flap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.06)),
+    linear-gradient(160deg, #e7d1ad, #c98f52);
+  box-shadow:
+    inset 0 0 0 1px rgba(53, 30, 21, 0.18),
+    0 6px 16px rgba(53, 30, 21, 0.18);
+}
+/* darker underside so open flaps read as folded card */
+.cbox__flap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-2px) rotateY(180deg);
+  background: linear-gradient(180deg, #b47c46, #8a5a30);
+}
+/* flute edge highlight along the free (cut) edge */
+.cbox__flap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(53, 30, 21, 0.12) 0 1px,
+    transparent 1px 8px
+  );
+  opacity: 0.6;
+}
+
+/* front/back flaps span the width (x) and are half the depth (y) long */
+.cbox__flap.f,
+.cbox__flap.b {
+  width: var(--w);
+  height: calc(var(--d) / 2);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--d) / -4);
+}
+/* left/right flaps span the depth (y) and are half the width (x) long */
+.cbox__flap.l,
+.cbox__flap.r {
+  width: calc(var(--w) / 2);
+  height: var(--d);
+  margin-left: calc(var(--w) / -4);
+  margin-top: calc(var(--d) / -2);
+}
+
+/* Each flap is raised to the opening plane (z = h/2), shifted to its wall edge,
+   then hinged there. progress 0 → flat lid (sealed, meeting at centre);
+   progress 1 → folded ~130° outward (clearly open, interior exposed). */
+.cbox__flap.f {
+  transform: translateZ(calc(var(--h) / 2)) translateY(calc(var(--d) / 2))
+    rotateX(calc(var(--of) * -130deg)) translateY(calc(var(--d) / -4));
+}
+.cbox__flap.b {
+  transform: translateZ(calc(var(--h) / 2)) translateY(calc(var(--d) / -2))
+    rotateX(calc(var(--ob) * 130deg)) translateY(calc(var(--d) / 4));
+}
+.cbox__flap.l {
+  transform: translateZ(calc(var(--h) / 2 - 2px)) translateX(calc(var(--w) / -2))
+    rotateY(calc(var(--ol) * -130deg)) translateX(calc(var(--w) / 4));
+}
+.cbox__flap.r {
+  transform: translateZ(calc(var(--h) / 2 - 2px)) translateX(calc(var(--w) / 2))
+    rotateY(calc(var(--orr) * 130deg)) translateX(calc(var(--w) / -4));
+}
+
+/* ---------- soft ground shadow ---------- */
+.cbox__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -90px;
+  width: 460px;
+  height: 110px;
+  margin-left: -230px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(53, 30, 21, 0.4),
+    transparent 70%
+  );
+  filter: blur(8px);
+  opacity: calc(1 - var(--dive));
+  transform: scale(calc(1 + (var(--ol) + var(--of)) * 0.14));
+}
+
+@media (max-width: 900px) {
+  .cbox-scene {
+    --w: 320px;
+    --d: 240px;
+    --h: 220px;
+  }
+}
+@media (max-width: 560px) {
+  .cbox-scene {
+    --w: 230px;
+    --d: 175px;
+    --h: 165px;
+  }
+}
