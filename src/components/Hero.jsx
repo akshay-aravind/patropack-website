@@ -134,7 +134,7 @@ export default function Hero() {
     >
       <div
         ref={stage}
-        className="relative flex h-screen flex-col items-center justify-center overflow-hidden"
+        className="relative flex h-screen flex-col items-center justify-center overflow-hidden sm:px-4 sm:pb-10 sm:pt-4"
       >
         {/* ambient background */}
         <div className="pointer-events-none absolute inset-0">
@@ -158,22 +158,20 @@ export default function Hero() {
         </div>
 
         {/* intro copy */}
-        <div ref={introRef} className="relative z-20 mb-8 max-w-3xl px-6 text-center sm:mb-10">
+        <div ref={introRef} className="relative z-20 mb-8 w-full max-w-4xl px-6 text-center sm:mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-kraft-500/40 bg-kraft-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-kraft-200">
             <span className="h-1.5 w-1.5 rounded-full bg-kraft-400" />
             Corrugated packaging · engineered
           </span>
-          <h1 className="mt-5 font-display text-4xl font-semibold leading-[0.98] text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="mt-5 font-display text-4xl font-semibold leading-[0.98] text-balance sm:text-5xl lg:text-6xl">
             Your Trusted Partner
             <br />
             <span className="bg-gradient-to-r from-kraft-200 via-kraft-400 to-kraft-300 bg-clip-text text-transparent">
               For Packaging Solutions
             </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base text-kraft-100/70 sm:text-lg">
-            High-strength corrugated boxes for food, retail, e-commerce, pharma
-            and export — manufactured in Sharjah and delivered across Dubai and
-            the UAE.
+          <p className="mx-auto mt-4 max-w-xl text-base text-kraft-100/70 sm:text-lg mb-6">
+            High-strength corrugated boxes for every industry, reliable delivery across the UAE
           </p>
         </div>
 

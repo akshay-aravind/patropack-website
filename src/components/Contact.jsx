@@ -6,7 +6,7 @@ const details = [
   { label: 'Email', value: 'sales.patropack@gmail.com', href: 'mailto:sales.patropack@gmail.com', icon: 'M3 6h18v12H3zM3 7l9 6 9-6' },
   { label: 'Phone', value: '+971 585 956 727', href: 'tel:+971585956727', icon: 'M4 5c0 8 7 15 15 15l2-4-5-2-2 2a12 12 0 01-6-6l2-2-2-5z' },
   { label: 'WhatsApp', value: 'Chat with us', href: whatsappLink(), icon: 'M20.5 3.5A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 012.2 12 9.8 9.8 0 0112 2.2 9.8 9.8 0 0121.8 12 9.8 9.8 0 0112 21.8z' },
-  { label: 'Address', value: 'Infinity Cart FZE LLC, Sharjah, UAE', icon: 'M12 21s7-6.4 7-11a7 7 0 10-14 0c0 4.6 7 11 7 11zM12 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5z' },
+  { label: 'Address', value: 'PatroPack, Infinity Cart FZE LLC, Sharjah, UAE', icon: 'M12 21s7-6.4 7-11a7 7 0 10-14 0c0 4.6 7 11 7 11zM12 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5z' },
 ]
 
 // Web3Forms access key — get yours (free) at https://web3forms.com by entering
