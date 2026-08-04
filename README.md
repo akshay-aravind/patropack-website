@@ -45,7 +45,7 @@ All copy and data are dummy values for client review:
 The contact form emails each submission to your inbox via Web3Forms — no backend needed.
 
 1. Go to [web3forms.com](https://web3forms.com) and enter the inbox that should
-   receive submissions (e.g. `sales.patropack@gmail.com`). They email you an
+   receive submissions (e.g. `info@patropack.com`). They email you an
    **access key** instantly — no account required.
 2. Open `.env` and replace `YOUR_ACCESS_KEY_HERE`:
    ```
