@@ -3,6 +3,8 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Products from './components/Products'
+import RetailBoxes from './components/RetailBoxes'
+import FlexiblePouches from './components/FlexiblePouches'
 import Specifications from './components/Specifications'
 import Industries from './components/Industries'
 import WhyChooseUs from './components/WhyChooseUs'
@@ -20,6 +22,8 @@ export default function App() {
         <Hero />
         <About />
         <Products />
+        <RetailBoxes />
+        <FlexiblePouches />
         <Specifications />
         <Industries />
         <WhyChooseUs />

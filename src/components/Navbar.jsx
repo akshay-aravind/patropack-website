@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Products', href: '#products' },
+  { label: 'Pouches', href: '#pouches' },
   { label: 'Specs', href: '#specs' },
   { label: 'Industries', href: '#industries' },
   { label: 'Contact', href: '#contact' },
@@ -75,7 +76,7 @@ export default function Navbar() {
       >
         <Logo dark={scrolled} />
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {links.map((l) => {
             const isActive = active === l.href.slice(1)
             return (
@@ -83,7 +84,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 aria-current={isActive ? 'true' : undefined}
-                className={`relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+                className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   scrolled
                     ? isActive
                       ? 'text-kraft-700'
@@ -106,14 +107,14 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden rounded-lg bg-kraft-600 px-4 py-2.5 text-sm font-semibold text-kraft-50 shadow-sm transition-all hover:bg-kraft-700 hover:shadow-md md:inline-block"
+          className="hidden rounded-lg bg-kraft-600 px-4 py-2.5 text-sm font-semibold text-kraft-50 shadow-sm transition-all hover:bg-kraft-700 hover:shadow-md lg:inline-block"
         >
           Request a Quote
         </a>
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className={`grid h-10 w-10 place-items-center rounded-lg md:hidden ${
+          className={`grid h-10 w-10 place-items-center rounded-lg lg:hidden ${
             scrolled ? 'text-ink' : 'text-white'
           }`}
           aria-label="Toggle menu"
@@ -134,7 +135,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="mx-3 mt-1 rounded-2xl border border-kraft-200 bg-kraft-50/95 p-3 shadow-xl backdrop-blur md:hidden"
+            className="mx-3 mt-1 rounded-2xl border border-kraft-200 bg-kraft-50/95 p-3 shadow-xl backdrop-blur lg:hidden"
           >
             {links.map((l) => {
               const isActive = active === l.href.slice(1)

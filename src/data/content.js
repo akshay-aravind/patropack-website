@@ -124,3 +124,110 @@ export const stats = [
   { value: '100', label: 'Boxes — our low minimum' },
   { value: '6', label: 'Industries we serve' },
 ]
+
+// ---------------------------------------------------------------------------
+// Printed retail & food cartons — illustrated via PackArt (no photography).
+// ---------------------------------------------------------------------------
+export const retailBoxes = [
+  {
+    id: 'takeaway',
+    shape: 'takeaway',
+    name: 'Takeaway Food Boxes',
+    tag: 'Food-grade',
+    desc: 'Customised board boxes for cloud kitchens, restaurants and delivery brands — grease-resistant, leak-safe and printed with your identity on every panel.',
+    specs: ['Food-safe board', 'Auto-lock base', 'Full-colour print'],
+  },
+  {
+    id: 'bakery',
+    shape: 'cake',
+    name: 'Bakery & Cake Boxes',
+    tag: 'Window-ready',
+    desc: 'Cookie, pastry and cake boxes with clear windows and rigid bases that hold their shape from the counter to the customer doorstep.',
+    specs: ['Clear window', 'Rigid base', 'Grease-resistant'],
+  },
+  {
+    id: 'chocolate',
+    shape: 'chocolate',
+    name: 'Chocolate Boxes',
+    tag: 'Premium',
+    desc: 'Rigid and folding boxes for chocolate manufacturers — fitted inserts, foil stamping and soft-touch finishes that protect both the shape and the shelf appeal.',
+    specs: ['Fitted inserts', 'Foil & emboss', 'Rigid or folding'],
+  },
+  {
+    id: 'cosmetics',
+    shape: 'perfume',
+    name: 'Cosmetics & Perfume Boxes',
+    tag: 'Luxury',
+    desc: 'Mono cartons for perfume, skincare and colour cosmetics, built on premium board with tight tolerances so the bottle sits exactly where it should.',
+    specs: ['Premium board', 'Spot UV & matt lam', 'Precision die-cut'],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Flexible packaging — pouch formats (structure) and end-uses (contents).
+// ---------------------------------------------------------------------------
+export const pouchFormats = [
+  {
+    id: 'standup',
+    shape: 'standup',
+    name: 'Stand-Up Pouches',
+    tag: 'Shelf-ready',
+    desc: 'Doypack-style pouches with a bottom gusset that stand unaided on shelf — the highest-impact format for retail packs.',
+    specs: ['Bottom gusset', 'Matt / gloss finish', 'Up to 8 colours'],
+  },
+  {
+    id: 'zipper',
+    shape: 'zipper',
+    name: 'Zipper Pouches',
+    tag: 'Resealable',
+    desc: 'Press-to-close zippers that let customers open and reseal the pack again and again without losing freshness.',
+    specs: ['Press-lock zip', 'Tear notch', 'Reclose tested'],
+  },
+  {
+    id: 'flat',
+    shape: 'flat',
+    name: 'Flat Pouches',
+    tag: 'Economical',
+    desc: 'Simple pillow and flat-bottom pouches for high-volume runs where cost per pack matters most.',
+    specs: ['2 & 3-ply laminate', 'Roll or pouch form', 'High-speed fill'],
+  },
+  {
+    id: 'threeside',
+    shape: 'threeside',
+    name: '3-Side Seal Pouches',
+    tag: 'Sachet',
+    desc: 'Sealed on three edges for sachets, samples and single-serve portions — accurate, compact and quick to fill.',
+    specs: ['Single-serve', 'Sample sachets', 'Easy-tear notch'],
+  },
+  {
+    id: 'vacuum',
+    shape: 'vacuum',
+    name: 'Vacuum Pouches',
+    tag: 'Shelf-life',
+    desc: 'High-barrier nylon structures that draw out air to keep meat, cheese and frozen goods fresh for far longer.',
+    specs: ['Nylon / PE barrier', 'Freezer-safe', 'Puncture resistant'],
+  },
+  {
+    id: 'retort',
+    shape: 'retort',
+    name: 'Retort Pouches',
+    tag: 'Heat-stable',
+    desc: 'Sterilisation-grade laminates that hold up to 121°C retort processing for ready meals, curries and sauces.',
+    specs: ['121°C rated', 'Ready-meal grade', 'Aluminium barrier'],
+  },
+]
+
+export const pouchApplications = [
+  'Rice Packaging Bags',
+  'Flour & Sugar Bags',
+  'Spice & Masala Pouches',
+  'Dry Fruit & Nut Pouches',
+  'Snack & Chips Bags',
+  'Biscuit Packaging',
+  'Frozen-Food Bags',
+  'Bakery Product Bags',
+  'Candy & Chocolate Wrappers',
+  'Coffee Packaging Bags',
+  'Tea Packaging',
+  'Pet-Food Bags',
+]

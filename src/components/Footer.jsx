@@ -2,16 +2,20 @@ import { whatsappLink } from '../lib/whatsapp'
 
 const columns = [
   {
-    heading: 'Products',
+    heading: 'Corrugated',
     links: ['RSC Cartons', 'Die-Cut Boxes', 'Printed Cartons', 'Export Boxes', 'Sheets & Rolls'],
+  },
+  {
+    heading: 'Retail & Food',
+    links: ['Takeaway Food Boxes', 'Bakery & Cake Boxes', 'Chocolate Boxes', 'Perfume Boxes', 'Pizza Boxes'],
+  },
+  {
+    heading: 'Flexible Packaging',
+    links: ['Stand-Up Pouches', 'Zipper Pouches', 'Vacuum Pouches', 'Retort Pouches', 'Spice & Masala Pouches'],
   },
   {
     heading: 'Company',
     links: ['About', 'Specifications', 'Industries', 'Quality', 'Contact'],
-  },
-  {
-    heading: 'Industries',
-    links: ['Food & Beverage', 'E-commerce', 'Pharma', 'FMCG', 'Electronics'],
   },
 ]
 
@@ -19,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-kraft-100/70">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2.5"> 
               <img
@@ -32,8 +36,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
-              High-quality corrugated packaging solutions for industrial, retail,
-              food, e-commerce and export applications.
+              Corrugated boxes, printed retail cartons and flexible pouch
+              packaging for food, retail, e-commerce and export applications.
             </p>
             <div className="mt-6 flex gap-3">
               {['in', 'x', 'ig'].map((s) => (
