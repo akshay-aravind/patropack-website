@@ -1,7 +1,7 @@
-// Flat SVG illustrations for the retail-carton and flexible-pouch ranges.
-// Same map-lookup shape as Icon.jsx, but these are filled artwork rather than
-// single stroke paths. Deliberately gradient-free: every card renders its own
-// <svg>, so shared gradient ids would collide across the page.
+// Flat SVG illustrations for the flexible-pouch formats. Same map-lookup shape
+// as Icon.jsx, but these are filled artwork rather than single stroke paths.
+// Deliberately gradient-free: every card renders its own <svg>, so shared
+// gradient ids would collide across the page.
 
 const K = {
   100: '#f3e9d7',
@@ -11,12 +11,10 @@ const K = {
   500: '#c4854a',
   600: '#b06f3e',
   700: '#925836',
-  900: '#623c2a',
   paper: '#faf6ef',
-  ink: '#1a1410',
 }
 
-// Crimped seal bar used on the pillow-style pouches.
+// Crimped seal bar used on the pillow-style pouch.
 function Crimp({ x, y, w, h = 8, fill = K[500] }) {
   const teeth = 9
   const step = w / teeth
@@ -29,53 +27,6 @@ function Crimp({ x, y, w, h = 8, fill = K[500] }) {
 }
 
 const shapes = {
-  // ---- Retail & food cartons ------------------------------------------------
-  takeaway: (
-    <>
-      <path d="M60 60Q80 28 100 60" fill="none" stroke={K.ink} strokeWidth="3" opacity=".35" strokeLinecap="round" />
-      <path d="M40 62h80l-10 72H50z" fill={K[300]} />
-      <path d="M40 62h80l-3 18H43z" fill={K[200]} />
-      <path d="M80 80v54" stroke={K[500]} strokeWidth="2" opacity=".45" />
-      <rect x="62" y="92" width="36" height="26" rx="3" fill={K.paper} opacity=".85" />
-      <path d="M69 106h22M69 112h14" stroke={K[500]} strokeWidth="2.5" strokeLinecap="round" opacity=".6" />
-    </>
-  ),
-  cake: (
-    <>
-      <rect x="30" y="68" width="100" height="62" rx="4" fill={K[300]} />
-      <rect x="25" y="52" width="110" height="20" rx="3" fill={K[200]} />
-      <rect x="25" y="52" width="110" height="6" rx="3" fill={K[400]} opacity=".5" />
-      <rect x="56" y="82" width="48" height="34" rx="4" fill={K.paper} />
-      <path d="M68 110h24l-5-18H73z" fill={K[400]} />
-      <circle cx="80" cy="88" r="4" fill={K[700]} />
-      <path d="M30 122h100" stroke={K[500]} strokeWidth="2" opacity=".35" />
-    </>
-  ),
-  chocolate: (
-    <>
-      <rect x="38" y="40" width="94" height="22" rx="4" fill={K[300]} />
-      <rect x="38" y="47" width="94" height="8" fill={K[600]} opacity=".45" />
-      <rect x="26" y="72" width="108" height="58" rx="5" fill={K[400]} />
-      <rect x="34" y="79" width="92" height="44" rx="3" fill={K[200]} />
-      {[52, 80, 108].map((cx) =>
-        [92, 111].map((cy) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="7.5" fill={K[700]} />),
-      )}
-    </>
-  ),
-  perfume: (
-    <>
-      <rect x="34" y="46" width="48" height="90" rx="3" fill={K[300]} />
-      <rect x="34" y="46" width="48" height="11" rx="3" fill={K[200]} />
-      <path d="M46 76h24M46 86h16" stroke={K.paper} strokeWidth="3" strokeLinecap="round" opacity=".8" />
-      <path d="M58 104l9 9-9 9-9-9z" fill={K[600]} opacity=".55" />
-      <rect x="94" y="82" width="34" height="54" rx="7" fill={K[100]} stroke={K[500]} strokeWidth="2" />
-      <rect x="105" y="68" width="12" height="16" fill={K[400]} />
-      <rect x="100" y="52" width="22" height="18" rx="3" fill={K[700]} />
-      <path d="M102 100h18" stroke={K[400]} strokeWidth="3" strokeLinecap="round" opacity=".7" />
-    </>
-  ),
-
-  // ---- Flexible pouch formats ----------------------------------------------
   standup: (
     <>
       <rect x="44" y="32" width="72" height="9" rx="2" fill={K[500]} />

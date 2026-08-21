@@ -126,12 +126,12 @@ export const stats = [
 ]
 
 // ---------------------------------------------------------------------------
-// Printed retail & food cartons — illustrated via PackArt (no photography).
+// Printed retail & food cartons.
 // ---------------------------------------------------------------------------
 export const retailBoxes = [
   {
     id: 'takeaway',
-    shape: 'takeaway',
+    image: '/products/takeaway.jpg',
     name: 'Takeaway Food Boxes',
     tag: 'Food-grade',
     desc: 'Customised board boxes for cloud kitchens, restaurants and delivery brands — grease-resistant, leak-safe and printed with your identity on every panel.',
@@ -139,7 +139,7 @@ export const retailBoxes = [
   },
   {
     id: 'bakery',
-    shape: 'cake',
+    image: '/products/bakery-cake.jpg',
     name: 'Bakery & Cake Boxes',
     tag: 'Window-ready',
     desc: 'Cookie, pastry and cake boxes with clear windows and rigid bases that hold their shape from the counter to the customer doorstep.',
@@ -147,7 +147,7 @@ export const retailBoxes = [
   },
   {
     id: 'chocolate',
-    shape: 'chocolate',
+    image: '/products/chocolate.jpg',
     name: 'Chocolate Boxes',
     tag: 'Premium',
     desc: 'Rigid and folding boxes for chocolate manufacturers — fitted inserts, foil stamping and soft-touch finishes that protect both the shape and the shelf appeal.',
@@ -155,7 +155,7 @@ export const retailBoxes = [
   },
   {
     id: 'cosmetics',
-    shape: 'perfume',
+    image: '/products/cosmetics.jpg',
     name: 'Cosmetics & Perfume Boxes',
     tag: 'Luxury',
     desc: 'Mono cartons for perfume, skincare and colour cosmetics, built on premium board with tight tolerances so the bottle sits exactly where it should.',

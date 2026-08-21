@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { retailBoxes } from '../data/content'
-import PackArt from './PackArt'
 import SectionHeading from './SectionHeading'
 
 const card = {
@@ -34,12 +33,15 @@ export default function RetailBoxes() {
               viewport={{ once: true, margin: '-60px' }}
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-kraft-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-kraft-300 hover:shadow-xl hover:shadow-kraft-900/10"
             >
-              {/* illustration */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-kraft-100">
-                <PackArt
-                  shape={p.shape}
-                  className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-110"
+              {/* photo */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-kraft-200">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-40" />
                 <span className="absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-kraft-100 backdrop-blur-sm">
                   {p.tag}
                 </span>
