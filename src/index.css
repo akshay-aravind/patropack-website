@@ -89,3 +89,13 @@ html.lenis body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Horizontal chip/tab strips: scrollable but without the themed scrollbar,
+   which is far too heavy under a row of filter pills. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

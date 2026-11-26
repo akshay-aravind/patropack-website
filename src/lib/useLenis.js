@@ -8,13 +8,18 @@ gsap.registerPlugin(ScrollTrigger)
 /**
  * Wires Lenis smooth scrolling into GSAP's ScrollTrigger so that scroll-driven
  * animations stay perfectly in sync with the smoothed scroll position.
+ *
+ * Pass `enabled: false` on screens where native scrolling is a better fit
+ * (long forms, modals, the order builder).
  */
-export function useLenis() {
+export function useLenis(enabled = true) {
   useEffect(() => {
+    if (!enabled) return undefined
+
     const prefersReduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches
-    if (prefersReduced) return
+    if (prefersReduced) return undefined
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -32,5 +37,5 @@ export function useLenis() {
       gsap.ticker.remove(raf)
       lenis.destroy()
     }
-  }, [])
+  }, [enabled])
 }

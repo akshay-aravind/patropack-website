@@ -106,7 +106,7 @@ export default function Navbar() {
         </nav>
 
         <a
-          href="#contact"
+          href="#/quote"
           className="hidden rounded-lg bg-kraft-600 px-4 py-2.5 text-sm font-semibold text-kraft-50 shadow-sm transition-all hover:bg-kraft-700 hover:shadow-md lg:inline-block"
         >
           Request a Quote
@@ -159,7 +159,7 @@ export default function Navbar() {
               )
             })}
             <a
-              href="#contact"
+              href="#/quote"
               onClick={() => setOpen(false)}
               className="mt-1 block rounded-lg bg-kraft-600 px-4 py-3 text-center text-base font-semibold text-kraft-50"
             >

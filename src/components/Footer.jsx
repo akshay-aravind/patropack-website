@@ -1,21 +1,46 @@
 import { whatsappLink } from '../lib/whatsapp'
 
+// Product links open that product's size sheet in the order builder.
 const columns = [
   {
     heading: 'Corrugated',
-    links: ['RSC Cartons', 'Die-Cut Boxes', 'Printed Cartons', 'Export Boxes', 'Sheets & Rolls'],
+    links: [
+      { label: 'RSC Cartons', href: '#/quote/rsc' },
+      { label: 'Die-Cut Boxes', href: '#/quote/diecut' },
+      { label: 'Printed Cartons', href: '#/quote/printed' },
+      { label: 'Export Boxes', href: '#/quote/export' },
+      { label: 'Sheets & Rolls', href: '#/quote/sheets' },
+    ],
   },
   {
     heading: 'Retail & Food',
-    links: ['Takeaway Food Boxes', 'Bakery & Cake Boxes', 'Chocolate Boxes', 'Perfume Boxes', 'Pizza Boxes'],
+    links: [
+      { label: 'Takeaway Food Boxes', href: '#/quote/takeaway' },
+      { label: 'Bakery & Cake Boxes', href: '#/quote/bakery' },
+      { label: 'Chocolate Boxes', href: '#/quote/chocolate' },
+      { label: 'Perfume Boxes', href: '#/quote/cosmetics' },
+      { label: 'Pizza Boxes', href: '#/quote/food' },
+    ],
   },
   {
     heading: 'Flexible Packaging',
-    links: ['Stand-Up Pouches', 'Zipper Pouches', 'Vacuum Pouches', 'Retort Pouches', 'Spice & Masala Pouches'],
+    links: [
+      { label: 'Stand-Up Pouches', href: '#/quote/standup' },
+      { label: 'Zipper Pouches', href: '#/quote/zipper' },
+      { label: 'Vacuum Pouches', href: '#/quote/vacuum' },
+      { label: 'Retort Pouches', href: '#/quote/retort' },
+      { label: 'Flat Pouches', href: '#/quote/flat' },
+    ],
   },
   {
     heading: 'Company',
-    links: ['About', 'Specifications', 'Industries', 'Quality', 'Contact'],
+    links: [
+      { label: 'About', href: '#about' },
+      { label: 'Specifications', href: '#specs' },
+      { label: 'Industries', href: '#industries' },
+      { label: 'Build an order', href: '#/quote' },
+      { label: 'Contact', href: '#contact' },
+    ],
   },
 ]
 
@@ -71,9 +96,9 @@ export default function Footer() {
               </h4>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <a href="#top" className="text-sm transition-colors hover:text-kraft-300">
-                      {l}
+                  <li key={l.label}>
+                    <a href={l.href} className="text-sm transition-colors hover:text-kraft-300">
+                      {l.label}
                     </a>
                   </li>
                 ))}

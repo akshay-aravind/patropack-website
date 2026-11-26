@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { products } from '../data/content'
+import QuoteThisButton from './QuoteThisButton'
 import SectionHeading from './SectionHeading'
 
 const card = {
@@ -64,6 +65,7 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
+                <QuoteThisButton id={p.id} name={p.name} />
               </div>
             </motion.article>
           ))}
@@ -71,10 +73,10 @@ export default function Products() {
 
         <div className="mt-14 text-center">
           <a
-            href="#contact"
+            href="#/quote"
             className="inline-flex items-center gap-2 rounded-full bg-kraft-600 px-6 py-3 text-sm font-semibold text-kraft-50 shadow-sm transition-all hover:bg-kraft-700 hover:shadow-md"
           >
-            Need a custom spec? Talk to us
+            Browse all products & build an order
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
